@@ -15,7 +15,7 @@ REPONAME=${CIRCLE_PROJECT_REPONAME}
 
 BRANCH=${CIRCLE_BRANCH:-master}
 
-DOCKER_USER=${DOCKER_USER:-$USERNAME}
+DOCKER_USER=${DOCKER_USER}
 DOCKER_PASS=${DOCKER_PASS}
 
 CIRCLE_BUILDER=${CIRCLE_BUILDER}
@@ -54,17 +54,33 @@ _command() {
 _docker() {
     echo "helloooooo"
 
-    if [ ! -f ${RUN_PATH}/target/VERSION ]; then
-        _result "not found target/VERSION"
-        return
-    fi
-    if [ -z ${DOCKER_PASS} ]; then
-        _result "not found DOCKER_USER"
+    if [ ! -f ${RUN_PATH}/VERSION ]; then
+        _result "not found VERSION"
         return
     fi
 
-    VERSION=$(cat ${RUN_PATH}/target/VERSION | xargs)
+    # release version
+    MAJOR=$(cat ${RUN_PATH}/VERSION | xargs | cut -d'.' -f1)
+    MINOR=$(cat ${RUN_PATH}/VERSION | xargs | cut -d'.' -f2)
+    PATCH=$(cat ${RUN_PATH}/VERSION | xargs | cut -d'.' -f3)
+
+    if [ "${PATCH}" != "x" ]; then
+        VERSION="${MAJOR}.${MINOR}.${PATCH}"
+        printf "${VERSION}" > ${RUN_PATH}/VERSION
+    else
+        VERSION="${MAJOR}.${MINOR}.${CIRCLE_BUILD_NUM}"
+        printf "${VERSION}" > ${RUN_PATH}/VERSION
+    fi
+
     _result "VERSION=${VERSION}"
+
+#    if [ -z ${DOCKER_PASS} ]; then
+#        _result "not found DOCKER_USER"
+#        return
+#    fi
+#
+#    VERSION=$(cat ${RUN_PATH}/target/VERSION | xargs)
+#    _result "VERSION=${VERSION}"
 
     _command "docker login -u $DOCKER_USER"
     docker login -u $DOCKER_USER -p $DOCKER_PASS
