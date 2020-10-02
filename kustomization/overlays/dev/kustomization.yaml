@@ -1,0 +1,8 @@
+bases:
+  - ../../base
+#resources:
+#  - ../../base/kustomization.yaml
+
+patchesStrategicMerge:
+  - deployment.yaml
+#namePrefix: dev-

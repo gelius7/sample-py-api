@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: py-api
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+    - host: py-api.dev.k8s.11stdev.io
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: py-api
+              servicePort: http

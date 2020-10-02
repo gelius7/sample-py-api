@@ -1,0 +1,21 @@
+
+#configMapGenerator:
+#  - name: example-configmap-2
+#    literals:
+#      - FOO=Bar
+#generatorOptions:
+#  disableNameSuffixHash: true
+#  labels:
+#    type: generated
+#  annotations:
+#    note: generated
+
+namespace: test
+commonLabels:
+  app: py-api
+commonAnnotations:
+  commanno: jjaa
+resources:
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml

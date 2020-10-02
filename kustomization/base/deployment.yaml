@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: py-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deployment: sample-py-api
+  template:
+    metadata:
+      labels:
+        deployment: sample-py-api
+    spec:
+      containers:
+        - name: py-api
+          image: gelius7/sample-py-api
