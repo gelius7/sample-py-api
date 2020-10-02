@@ -10,7 +10,7 @@
 #  annotations:
 #    note: generated
 
-namespace: test
+#namespace: test
 commonLabels:
   app: py-api
 commonAnnotations:
