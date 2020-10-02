@@ -11,11 +11,18 @@
 #    note: generated
 
 #namespace: test
+#commonAnnotations:
+#  commanno: jjaa
 commonLabels:
   app: py-api
-commonAnnotations:
-  commanno: jjaa
 resources:
   - deployment.yaml
   - service.yaml
   - ingress.yaml
+
+vars:
+  - name: SVC_NAME
+    objref:
+      kind: Ingress
+      name: py-api
+      apiVersion: networking.k8s.io/v1beta1
