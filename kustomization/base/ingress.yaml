@@ -14,4 +14,3 @@ spec:
             backend:
               serviceName: py-api
               servicePort: http
-

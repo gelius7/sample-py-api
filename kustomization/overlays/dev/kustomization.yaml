@@ -5,6 +5,14 @@ bases:
 
 patchesStrategicMerge:
   - deployment.yaml
-  - ingress.yaml
+#  - ingress.yaml
 
 namePrefix: dev-
+
+patchesJson6902:
+  - path: hostname-patch.yaml
+    target:
+      group: networking.k8s.io
+      version: v1beta1
+      kind: Ingress
+      name: py-api
