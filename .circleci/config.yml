@@ -10,7 +10,7 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: false
       - run:
-          name: init
+          name: docker
           command: |
             mkdir target
             cp ./ci-docker.sh target/ci-docker.sh
