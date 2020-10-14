@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 from flask import Flask, request, escape
+from os import environ
+import time
 
 app = Flask(__name__)
 
@@ -8,7 +10,14 @@ app = Flask(__name__)
 @app.route('/', methods=['GET'])
 def hello_get():
     uid = request.args.get('uid')
-    return f'Hello {escape(uid)}! by get'
+    ret = f'''Hello.Rest api GET <br> 
+Env : {environ.get("ENV")} <br>
+Hostname : {environ.get("HOSTNAME")} <br>
+Input uid= : {escape(uid)} <br>
+current time : {time.strftime('%A %B, %d %Y %H:%M:%S')}
+'''
+
+    return ret
 
 
 @app.route('/', methods=['POST'])
