@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
         - name: py-api
-          image: gelius7/sample-py-api:0.0.24
+          image: gelius7/sample-py-api:0.0.25

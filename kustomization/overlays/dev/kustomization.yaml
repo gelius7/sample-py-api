@@ -29,8 +29,8 @@ patchesJson6902:
       version: v1beta1
       kind: Ingress
       name: py-api
-  - path: configmap-patch.yaml
-    target:
-      version: v1
-      kind: ConfigMap
-      name: example-configmap
+#  - path: configmap-patch.yaml
+#    target:
+#      version: v1
+#      kind: ConfigMap
+#      name: example-configmap

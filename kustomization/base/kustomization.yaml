@@ -1,15 +1,15 @@
 
-configMapGenerator:
-  - name: example-configmap
-    literals:
-      - ENV=local
-  - behavior: create
-generatorOptions:
-  disableNameSuffixHash: true
-  labels:
-    type: generated
-  annotations:
-    note: generated
+#configMapGenerator:
+#  - name: example-configmap
+#    literals:
+#      - ENV=local
+#  - behavior: create
+#generatorOptions:
+#  disableNameSuffixHash: true
+#  labels:
+#    type: generated
+#  annotations:
+#    note: generated
 
 #namespace: test
 #commonAnnotations:
