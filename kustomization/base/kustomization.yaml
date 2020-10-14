@@ -3,7 +3,7 @@ configMapGenerator:
   - name: example-configmap
     literals:
       - ENV=local
-  - behavior: replace
+  - behavior: create
 generatorOptions:
   disableNameSuffixHash: true
   labels:

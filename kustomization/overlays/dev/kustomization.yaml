@@ -1,14 +1,14 @@
-configMapGenerator:
-  - name: example-configmap
-    literals:
-      - ENV=dev
-  - behavior: replace
-generatorOptions:
-  disableNameSuffixHash: true
-  labels:
-    type: generated
-  annotations:
-    note: generated
+#configMapGenerator:
+#  - name: example-configmap
+#    literals:
+#      - ENV=dev
+#  - behavior: merge
+#generatorOptions:
+#  disableNameSuffixHash: true
+#  labels:
+#    type: generated
+#  annotations:
+#    note: generated
 
 
 bases:
@@ -29,3 +29,8 @@ patchesJson6902:
       version: v1beta1
       kind: Ingress
       name: py-api
+  - path: configmap-patch.yaml
+    target:
+      version: v1
+      kind: ConfigMap
+      name: example-configmap
