@@ -1,14 +1,14 @@
 
-#configMapGenerator:
-#  - name: example-configmap-2
-#    literals:
-#      - FOO=Bar
-#generatorOptions:
-#  disableNameSuffixHash: true
-#  labels:
-#    type: generated
-#  annotations:
-#    note: generated
+configMapGenerator:
+  - name: example-configmap
+    literals:
+      - ENV=local
+generatorOptions:
+  disableNameSuffixHash: true
+  labels:
+    type: generated
+  annotations:
+    note: generated
 
 #namespace: test
 #commonAnnotations:

@@ -1,3 +1,15 @@
+configMapGenerator:
+  - name: example-configmap
+    literals:
+      - ENV=dev
+generatorOptions:
+  disableNameSuffixHash: true
+  labels:
+    type: generated
+  annotations:
+    note: generated
+
+
 bases:
   - ../../base
 #resources:
