@@ -13,7 +13,7 @@ def hello_get():
     ret = f'''Hello.Rest api GET <br> 
 Env : {environ.get("ENV")} <br>
 Hostname : {environ.get("HOSTNAME")} <br>
-Input uid= : {escape(uid)} <br>
+Input uiddddd= : {escape(uid)} <br>
 current time : {time.strftime('%A %B, %d %Y %H:%M:%S')}
 '''
 
