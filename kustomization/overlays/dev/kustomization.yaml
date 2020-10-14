@@ -2,6 +2,7 @@ configMapGenerator:
   - name: example-configmap
     literals:
       - ENV=dev
+  - behavior: replace
 generatorOptions:
   disableNameSuffixHash: true
   labels:
